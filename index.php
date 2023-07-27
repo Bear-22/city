@@ -7,11 +7,6 @@
 	}
 ?>
 
-<?
-	//если регистрация успешна выводим сообщение
-	if (isset($_SESSION['message']['ok'])): ?>
-        <h1><?= $_SESSION['message']['ok']; ?></h1>
-	<? endif; ?>
 
 <? //форма автооризации?>
 <div class="form-wrap">
@@ -24,9 +19,14 @@
             <label for="password">Введите пароль</label>
             <input id="password" name="password" type="password" placeholder="password">
         </div>
-        	<? //если регистрация не успешна выводим сообщение
+		<? //если регистрация не успешна выводим сообщение
 			if (isset($_SESSION['message']['error'])): ?>
                 <span class="error"><?= $_SESSION['message']['error']; ?></span>
+			<? endif; ?>
+		<?
+			//если регистрация успешна выводим сообщение
+			if (isset($_SESSION['message']['ok'])): ?>
+                <span class="error" style="color: orange;text-align: center"><?= $_SESSION['message']['ok']; ?></span>
 			<? endif; ?>
         <input type="submit" class="btn" value="Авторизоваться">
 
